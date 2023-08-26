@@ -7,7 +7,7 @@
 Вывести значение переменной admin в консоль.
 */
 
-const myName = "Alex"; //ругается на переменную name, так как она устаревшая ('name' is deprecated)
-const admin = myName;
+const myName = "Alex"; // ругается на переменную name, так как она устаревшая ('name' is deprecated)
+const admin = myName; // поэтому дал свое название переменной
 
 console.log(`name: ${myName}\nadmin: ${admin}`);
