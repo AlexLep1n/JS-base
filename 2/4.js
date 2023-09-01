@@ -22,25 +22,46 @@
 Уточнение: Пользователь всегда вводит корректное положительное целое число.
 Подсказка: Возможно, вам понадобится округление чисел и оператор %.
 */
+
+// Первый вариант решения
+
+// let userNum;
+// do {
+//   userNum = prompt("Enter value", "163");
+//   if (isFinite(userNum)) {
+//     if (userNum.length >= 3) {
+//       const lastNums = userNum.slice(-3);
+//       console.log(
+//         `В числе ${userNum} количество сотен: ${lastNums[0]}, десятков: ${lastNums[1]}, единиц: ${lastNums[2]}`
+//       );
+//     } else if (userNum.length == 2) {
+//       console.log(
+//         `В числе ${userNum} количество сотен: 0, десятков: ${userNum[0]}, единиц: ${userNum[1]}`
+//       );
+//     } else {
+//       console.log(
+//         `В числе ${userNum} количество сотен: 0, десятков: 0, единиц: ${userNum[0]}`
+//       );
+//     }
+//   } else {
+//     console.log("Вы ввели некорректное число!");
+//   }
+// } while (isFinite(userNum));
+
+// Второй вариант решения (адекватный)
+
 let userNum;
+
 do {
-  userNum = prompt("Enter value", "163");
-  if (isFinite(userNum)) {
-    if (userNum.length >= 3) {
-      const lastNums = userNum.slice(-3);
-      console.log(
-        `В числе ${userNum} количество сотен: ${lastNums[0]}, десятков: ${lastNums[1]}, единиц: ${lastNums[2]}`
-      );
-    } else if (userNum.length == 2) {
-      console.log(
-        `В числе ${userNum} количество сотен: 0, десятков: ${userNum[0]}, единиц: ${userNum[1]}`
-      );
-    } else {
-      console.log(
-        `В числе ${userNum} количество сотен: 0, десятков: 0, единиц: ${userNum[0]}`
-      );
-    }
-  } else {
-    console.log("Вы ввели некорректное число!");
+  userNum = Number.parseFloat(prompt("Enter value", "163"));
+  if (!Number.isFinite(userNum)) {
+    break;
   }
-} while (isFinite(userNum));
+  console.log(
+    `В числе ${userNum} количество сотен: ${
+      Math.trunc(userNum / 100) % 10
+    }, десятков: ${Math.trunc(userNum / 10) % 10}, единиц: ${
+      Math.trunc(userNum) % 10
+    }`
+  );
+} while (Number.isFinite(userNum));

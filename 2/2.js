@@ -5,13 +5,11 @@
 Если есть какие-либо недочеты в коде, можете их исправить.
 */
 
-const test = confirm("У вас много денег?");
+const test = confirm("У вас много денег?"); // return true or false
 // if (test === true) {
 //   console.log("Скоро будем у вас ;)");
 // } else {
 //   console.log("До свидания.");
 // }
 
-test == true
-  ? console.log("Скоро будем у вас ;)")
-  : console.log("До свидания.");
+test ? console.log("Скоро будем у вас ;)") : console.log("До свидания.");
