@@ -10,4 +10,35 @@
 три числа. Проверять их не нужно.
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+const num1 = Number.parseFloat(prompt("Введите первое число", "4"));
+const num2 = Number.parseFloat(prompt("Введите второе число", "11"));
+const num3 = Number.parseFloat(prompt("Введите третье число", "7"));
+
+maxNumber(num1, num2, num3);
+
+/**
+ * Функция ищет максимальное значение из трех
+ * @param {number} num1 - Первое число
+ * @param {number} num2 - Второе число
+ * @param {number} num3 - Третье число
+ * @returns {number} Максимальное число
+ */
+function maxNumber(num1, num2, num3) {
+  if (num1 === num2 && num1 === num3) {
+    console.log(`Числа ${num1}, ${num2}, ${num3} равны между собой!`);
+    return;
+  }
+  if (num1 > num2 && num1 > num3) {
+    console.log(
+      `Максимальное значение среди чисел ${num1}, ${num2}, ${num3} равно ${num1}.`
+    );
+  } else if (num2 > num1 && num2 > num3) {
+    console.log(
+      `Максимальное значение среди чисел ${num1}, ${num2}, ${num3} равно ${num2}.`
+    );
+  } else {
+    console.log(
+      `Максимальное значение среди чисел ${num1}, ${num2}, ${num3} равно ${num3}.`
+    );
+  }
+}

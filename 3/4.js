@@ -18,4 +18,46 @@ console.log(sum(2, 6)); должно вывести число 8 в консол
 Демонстрировать работы функций не обязательно.
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+/**
+ * Функция сложения
+ * @param {number} num1 Первое число
+ * @param {number} num2 Второе число
+ * @returns {number} Сумма чисел
+ */
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+/**
+ * Функция разности
+ * @param {number} num1 Первое число
+ * @param {number} num2 Второе число
+ * @returns {number} Разность чисел
+ */
+function diff(num1, num2) {
+  return Math.max(num1, num2) - Math.min(num1, num2);
+}
+
+/**
+ * Функция умножения
+ * @param {number} num1 Первое число
+ * @param {number} num2 Второе число
+ * @returns {number} Произведение чисел
+ */
+const mult = (num1, num2) => num1 * num2;
+
+/**
+ * Функция деления
+ * @param {number} num1 Первое число
+ * @param {number} num2 Второе число
+ * @returns {number} Частное чисел
+ */
+function div(num1, num2) {
+  return num1 / num2;
+}
+
+console.log(sum(3, 4));
+console.log(diff(4, 6));
+console.log(diff(5, 5));
+console.log(mult(6, 4));
+console.log(div(8, 3));
