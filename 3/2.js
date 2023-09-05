@@ -22,7 +22,7 @@ if (Number.isFinite(userNum) && userNum > 0) {
  * @param {number} num - Зарплата до вычета налога
  * @returns {number} ЗП после вычета налога
  */
-function salary(num) {
-  num = num - num * 0.13;
-  console.log(`Размер заработной платы за вычетом налогов равен ${num}`);
+function salary(wage) {
+  const netSalary = Math.round((wage - wage * 0.13) * 100) / 100;
+  console.log(`Размер заработной платы за вычетом налогов равен ${netSalary}`);
 }

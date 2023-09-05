@@ -35,7 +35,7 @@ function sum(num1, num2) {
  * @returns {number} Разность чисел
  */
 function diff(num1, num2) {
-  return Math.max(num1, num2) - Math.min(num1, num2);
+  return Math.abs(num1 - num2);
 }
 
 /**

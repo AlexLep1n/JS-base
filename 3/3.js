@@ -21,7 +21,7 @@ maxNumber(num1, num2, num3);
  * @param {number} num1 - Первое число
  * @param {number} num2 - Второе число
  * @param {number} num3 - Третье число
- * @returns {number} Максимальное число
+ * @returns {undefined}
  */
 function maxNumber(num1, num2, num3) {
   if (num1 === num2 && num1 === num3) {
