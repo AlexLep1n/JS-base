@@ -31,4 +31,15 @@ const products = [
   },
 ];
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+console.log(
+  products.filter((item) => {
+    // использовал синтаксическую конструкцию "опциональная цепочка" (?.),
+    // так как не во всех объектак есть свойство photos,
+    // что вызовет ошибку при обращенни к свойству length у undefined
+    if (item.photos?.length > 0) {
+      return item.photos;
+    }
+  })
+);
+
+console.log(products.sort((a, b) => a.price - b.price));

@@ -30,4 +30,7 @@ const post = {
   ],
 };
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+console.log(`${post.author}
+${post.comments[0].rating.dislikes}
+${post.comments[1].userId}
+${post.comments[1].text}`);
