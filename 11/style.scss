@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@mixin ff($fs, $fw) {
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+body {
+  font-family: "Lato";
+}
+
+.container {
+  margin: 0 auto;
+  width: 1140px;
+}
+
+.futured {
+  margin: 96px 0 95px;
+
+  &__heading {
+    color: #222;
+    @include ff(30px, 400);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    color: #9f9f9f;
+    @include ff(14px, 400);
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 48px;
+  }
+
+  &__item {
+    width: 360px;
+    cursor: pointer;
+  }
+
+  &__item:hover {
+    background-color: rgba(248, 248, 248, 1);
+    transition-duration: 0.5s;
+  }
+
+  &__desc {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  }
+
+  &__desc-heading {
+    @include ff(13px, 400);
+    color: #000;
+  }
+
+  &__desc-txt {
+    @include ff(14px, 300);
+    color: #5d5d5d;
+  }
+
+  &__desc-price {
+    @include ff(16px, 400);
+    color: #f16d7f;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link-products {
+    text-align: center;
+    color: #f26376;
+    @include ff(16px, 400);
+    padding: 15px 39px;
+    border: 1px solid #ff6a6a;
+    transition: 0.3s;
+  }
+
+  &__link-products:hover {
+    transform: scale(1.2);
+    color: white;
+    background-color: #f26376;
+  }
+}
