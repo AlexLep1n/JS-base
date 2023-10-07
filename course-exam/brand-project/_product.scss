@@ -1,0 +1,277 @@
+@import "vars";
+
+@mixin df($jc, $ai, $g) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: $g;
+}
+
+@mixin ff($fs, $fw) {
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+.arrivals {
+    background-color: #f8f3f4;
+    padding: 59px 0 60px;
+
+    &__flex {
+        @include df(space-between, center, 0);
+    }
+
+    &__heading {
+        color: $colorPink;
+        @include ff(24px, 400);
+    }
+
+    &__breadcrump {
+        width: 209px;
+    }
+
+    &__link {
+        color: #636363;
+        @include ff(14px, 300);
+    }
+
+    &__link::before {
+        content: "/\00a0";
+        color: #636363;
+        padding: 0 1%;
+        font-weight: 300;
+    }
+
+    &__link:first-of-type:before {
+        content: "";
+        padding: 0;
+    }
+
+    &__link_active {
+        color: $colorPink;
+        @include ff(14px, 700);
+    }
+}
+
+.slider {
+    background-color: #f7f7f7;
+    @include df(space-between, center, 0);
+    border: 1px solid #eaeaea;
+    padding: 11px 0 42px;
+}
+
+.fa-angle-left,
+.fa-angle-right {
+    font-size: 31px;
+    padding: 13px 17px;
+    background-color: rgba(42, 42, 42, 0.15);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.fa-angle-right:hover {
+    color: $colorPink;
+}
+
+.collection {
+    margin-bottom: 129px;
+
+    &__flex {
+        @include df(center, center, 0);
+        flex-direction: column;
+        border: 1px solid #eaeaea;
+        transform: translateY(-52px);
+        background-color: white;
+    }
+
+    &__heading {
+        color: $colorPink;
+        @include ff(14px, 300);
+        margin: 64px 0 12px;
+    }
+
+    &__hr-top {
+        margin-bottom: 12px;
+        border: 3px solid #ef5b70;
+        width: 63px;
+    }
+
+    &__name {
+        color: #4d4d4d;
+        @include ff(18px, 300);
+        margin-bottom: 48px;
+    }
+
+    &__desc {
+        color: #5e5e5e;
+        text-align: center;
+        @include ff(14px, 300);
+        margin-bottom: 32px;
+        max-width: 554px;
+    }
+
+    &__price {
+        color: #ef5b70;
+        @include ff(24px, 300);
+        margin-bottom: 65px;
+    }
+
+    &__hr-bottom {
+        border: 1px solid #eaeaea;
+        width: 57%;
+        margin-bottom: 65px;
+    }
+
+    &__sort {
+        @include df(center, center, 23px);
+        margin-bottom: 48px;
+    }
+
+    &__sort-item {
+        @include df(center, center, 9px);
+    }
+
+    &__sort-item::-webkit-details-marker {
+        display: none;
+    }
+
+    &__sort-heading {
+        color: #6f6e6e;
+        @include ff(14px, 400);
+    }
+
+    &__btn {
+        padding: 15px 57px 9px 24px;
+        border: 1px solid #ff6a6a;
+        @include df(center, unset, 23px);
+        margin-bottom: 64px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    &__btn:hover {
+        background-color: $colorPink;
+        transform: scale(1.1);
+        .collection__btn-img path {
+            fill: white;
+        }
+
+        .collection__btn-text {
+            color: white;
+        }
+    }
+
+    &__btn-img {
+        fill: #ef5b70;
+    }
+
+    &__btn-text {
+        @include ff(16px, 400);
+        color: #f26376;
+    }
+}
+
+.fa-angle-down {
+    color: #6f6e6e;
+    font-size: 12px;
+}
+
+.fa-angle-down:hover {
+    color: $colorPink;
+}
+
+.prod-futured {
+    margin-bottom: 128px;
+
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .slider {
+        padding: 30px 0 29px;
+        &__img {
+            max-width: 466px;
+        }
+    }
+
+    .collection {
+        &__flex {
+            transform: translateY(0);
+        }
+    }
+
+    .prod-futured {
+        margin-bottom: 98px;
+    }
+
+    .prod-futured .futured__item:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .arrivals {
+        padding: 24px 0 46px;
+        &__flex {
+            flex-direction: column;
+            gap: 32px;
+        }
+    }
+
+    .slider {
+        padding: 85px 0;
+        &__img {
+            max-width: 253px;
+        }
+    }
+
+    .collection {
+        margin-bottom: 64px;
+
+        &__flex {
+            transform: translateY(0);
+        }
+
+        &__name {
+            margin-bottom: 32px;
+        }
+
+        &__desc {
+            line-height: 143.1%;
+            max-width: 92%;
+        }
+
+        &__price {
+            line-height: 130%;
+            margin-bottom: 32px;
+        }
+
+        &__hr-bottom {
+            width: 49%;
+            margin-bottom: 50px;
+        }
+
+        &__sort-item {
+            gap: 10px;
+        }
+
+        &__sort-heading {
+            @include ff(10px, 400);
+        }
+
+        &__sort {
+            margin-bottom: 64px;
+        }
+    }
+
+    .prod-futured {
+        margin-bottom: 48px;
+    }
+
+    .prod-futured__box .futured__item:nth-child(2) {
+        display: none;
+    }
+}

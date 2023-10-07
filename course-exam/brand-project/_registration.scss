@@ -1,0 +1,177 @@
+@mixin df($jc, $ai, $g) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: $g;
+}
+
+@mixin ff($fs, $fw) {
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+.reg {
+    padding: 64px 0 96px;
+    &__flex {
+        @include df(space-between, unset, 128px);
+    }
+
+    &__form {
+        @include df(unset, unset, 0);
+        flex-direction: column;
+        width: 32%;
+    }
+
+    &__box {
+        @include df(unset, unset, 20px);
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    &__form-heading {
+        color: #222;
+        @include ff(16px, 300);
+    }
+
+    &__form-input {
+        padding: 13px 5% 16px;
+        color: #222;
+        @include ff(13px, 300);
+        border: 1px solid #a4a4a4;
+    }
+
+    &__form-input::placeholder {
+        color: #b1b1b1;
+        @include ff(13px, 300);
+    }
+
+    &__radio-box {
+        margin: 15px 0 33px;
+        display: flex;
+        gap: 20px;
+    }
+
+    &__radio-label {
+        color: #000;
+        @include ff(11px, 300);
+        @include df(unset, center, 10px);
+        cursor: pointer;
+    }
+
+    &__radio-input {
+        cursor: pointer;
+    }
+
+    &__login-desc {
+        color: #b1b1b1;
+        @include ff(13px, 300);
+        margin-bottom: 39px;
+    }
+
+    &__btn {
+        background-color: $colorPink;
+        color: #fff;
+        @include ff(14px, 400);
+        padding: 16px 20px 17px 29px;
+        width: 167px;
+        border: 1px solid $colorPink;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    &__btn:hover {
+        background-color: #fff;
+        color: $colorPink;
+        transform: scale(1.1);
+        path {
+            fill: $colorPink;
+        }
+    }
+
+    &__btn svg {
+        margin-left: 20px;
+    }
+
+    &__loyalty {
+        width: 54%;
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
+    }
+
+    &__loyalty-heading,
+    &__loyalty-desc,
+    &__loyalty-item {
+        color: #000;
+        @include ff(24px, 300);
+    }
+
+    &__loyalty-list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__loyalty-item {
+        @include df(unset, center, 22px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .content {
+        padding: 0 2%;
+    }
+
+    .reg {
+        padding: 40px 0 96px;
+        &__flex {
+            gap: 22px;
+        }
+
+        &__form {
+            width: 55%;
+        }
+
+        &__loyalty-heading,
+        &__loyalty-desc,
+        &__loyalty-item {
+            @include ff(16px, 300);
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .reg {
+        padding: 40px 0 96px;
+
+        &__flex {
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        &__form {
+            width: 100%;
+        }
+
+        &__loyalty {
+            width: 100%;
+            gap: 22px;
+        }
+
+        &__loyalty-heading,
+        &__loyalty-desc,
+        &__loyalty-item {
+            @include ff(16px, 300);
+        }
+
+        &__loyalty-heading {
+            margin-bottom: 10px;
+        }
+    }
+}
