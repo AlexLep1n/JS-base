@@ -4,8 +4,8 @@
 // найти минимальное число в массиве, решение задание должно состоять из одной
 // строки кода.
 
-// const arr = [1, 5, 7, 9];
-// console.log(Math.min(...arr));
+const arr = [1, 5, 7, 9];
+console.log(Math.min(...arr));
 
 // 2) Напишите функцию createCounter, которая создает счетчик и возвращает объект
 // с двумя методами: increment и decrement. Метод increment должен увеличивать
@@ -13,32 +13,32 @@
 // на 1. Значение счетчика должно быть доступно только через методы объекта,
 // а не напрямую.
 
-// function createCounter() {
-//   let count = null;
-//   return {
-//     increment() {
-//       count++;
-//     },
-//     decrement() {
-//       count--;
-//     },
-//     getCount() {
-//       return count;
-//     },
-//   };
-// }
+function createCounter() {
+  let count = null;
+  return {
+    increment() {
+      count++;
+    },
+    decrement() {
+      count--;
+    },
+    getCount() {
+      return count;
+    },
+  };
+}
 
-// const counter = createCounter();
-// console.log(counter);
+const counter = createCounter();
+console.log(counter);
 
-// counter.increment();
-// console.log(counter.getCount());
-// counter.increment();
-// console.log(counter.getCount());
-// counter.decrement();
-// console.log(counter.getCount());
-// counter.decrement();
-// console.log(counter.getCount());
+counter.increment();
+console.log(counter.getCount());
+counter.increment();
+console.log(counter.getCount());
+counter.decrement();
+console.log(counter.getCount());
+counter.decrement();
+console.log(counter.getCount());
 
 // 3) Дополнительное задание, выполняем только если проходили работу с DOM.
 // Напишите рекурсивную функцию findElementByClass, которая принимает корневой
@@ -68,30 +68,48 @@ console.log(targetNestedDiv);
 const targetThirdDiv = findElementByClass(rootElem, "third-div");
 console.log(targetThirdDiv);
 
+// первый вариант решения
+
+// function findElementByClass(rootElem, targetClass) {
+//   // проверяем не является ли искомый элемент корнем
+//   if (rootElem.classList.contains(targetClass)) {
+//     return rootElem;
+//   }
+//   const childArr = rootElem.children;
+//   let elem;
+//   // проходимся по потомкам текущего элемента
+//   ex: for (const childElem of childArr) {
+//     // возвращаем искомый элемент, если он был найден
+//     // в вложенном вызове функции
+//     if (elem?.classList.contains(targetClass)) {
+//       return elem;
+//     }
+//     // уменьшаем кол-во вложенных вызовов функции
+//     if (childArr.length === 0) {
+//       continue;
+//     }
+//     if (childElem.classList.contains(targetClass)) {
+//       elem = childElem;
+//       break ex;
+//     } else {
+//       elem = findElementByClass(childElem, targetClass);
+//     }
+//   }
+//   return elem;
+// }
+
+// второй вариант решения (лаконичный)
+
 function findElementByClass(rootElem, targetClass) {
-  // проверяем не является ли искомый элемент корнем
   if (rootElem.classList.contains(targetClass)) {
     return rootElem;
   }
-  const childArr = rootElem.children;
-  let elem;
-  // проходимся по потомкам текущего элемента
-  ex: for (const childElem of childArr) {
-    // возвращаем искомый элемент, если он был найден
-    // в вложенном вызове функции
-    if (elem?.classList.contains(targetClass)) {
+
+  for (const child of rootElem.children) {
+    const elem = findElementByClass(child, targetClass);
+    if (elem) {
       return elem;
     }
-    // уменьшаем кол-во вложенных вызовов функции
-    if (childArr.length === 0) {
-      continue;
-    }
-    if (childElem.classList.contains(targetClass)) {
-      elem = childElem;
-      break ex;
-    } else {
-      elem = findElementByClass(childElem, targetClass);
-    }
   }
-  return elem;
+  return null;
 }
