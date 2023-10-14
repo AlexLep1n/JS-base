@@ -1,0 +1,321 @@
+@import "vars";
+
+@mixin df($jc, $ai, $g) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: $g;
+}
+
+@mixin ff($fs, $fw) {
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+.cart {
+    padding: 96px 0 128px;
+
+    &__flex {
+        @include df(space-between, unset, 0);
+    }
+
+    &__cards-heading {
+        color: #222;
+        @include ff(30px, 400);
+        margin-bottom: 64px;
+        text-align: center;
+    }
+
+    &__cards {
+        @include df(center, center, 0);
+        flex-direction: column;
+        width: 57%;
+    }
+
+    &__img {
+        height: 306px;
+    }
+
+    &__card {
+        position: relative;
+        @include df(unset, unset, 0);
+        height: 306px;
+        background-color: #fff;
+        box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+        margin-bottom: 40px;
+    }
+
+    &__card-close {
+        position: absolute;
+        top: 28px;
+        right: 22px;
+        cursor: pointer;
+        width: 18px;
+        height: 18px;
+    }
+
+    &__card-close:hover path {
+        fill: $colorPink;
+    }
+
+    &__card-content {
+        padding: 22px 97px 62px 32px;
+        @include df(space-between, unset, 42px);
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__card-heading {
+        color: #222;
+        @include ff(24px, 400);
+        max-width: 75%;
+    }
+
+    &__card-desc {
+        @include df(unset, unset, 6px);
+        flex-direction: column;
+    }
+
+    &__card-txt {
+        color: #6f6e6e;
+        @include ff(22px, 400);
+    }
+
+    &__card-txt_span {
+        color: $colorPink;
+        padding-left: 1%;
+    }
+
+    &__card-input {
+        color: #656565;
+        @include ff(18px, 400);
+        width: 18%;
+        text-align: right;
+        border: 1px solid #eaeaea;
+        margin-left: 24px;
+    }
+
+    &__btns {
+        width: 100%;
+        @include df(space-between, center, 0);
+        margin-top: 32px;
+    }
+
+    &__btn {
+        color: #4a4a4a;
+        @include ff(14px, 300);
+        padding: 16px 40px;
+        border: 1px solid #a4a4a4;
+        transition: all 0.3s ease;
+    }
+
+    &__btn:hover {
+        color: rgb(255, 255, 255);
+        background-color: $colorPink;
+        transform: scale(1.1);
+    }
+
+    &__info {
+        @include df(unset, unset, 57px);
+        flex-direction: column;
+        width: 32%;
+    }
+
+    &__form {
+        @include df(unset, unset, 20px);
+        flex-direction: column;
+    }
+
+    &__form-heading {
+        color: #222;
+        @include ff(16px, 300);
+    }
+
+    &__form-input {
+        padding: 13px 5% 16px;
+        border: 1px solid #a4a4a4;
+        color: #222;
+        @include ff(13px, 300);
+    }
+
+    &__form-btn {
+        padding: 10px 5% 12px;
+        border: 1px solid #a4a4a4;
+        background-color: #fff;
+        width: 38%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        color: #4a4a4a;
+        @include ff(11px, 300);
+    }
+
+    &__form-btn:hover {
+        background-color: $colorPink;
+        color: #fff;
+        transform: scale(1.1);
+    }
+
+    &__offer {
+        @include df(unset, unset, 0);
+        flex-direction: column;
+        background-color: #f5f3f3;
+        padding: 39px 34px 42px 44px;
+    }
+
+    &__offer-sub {
+        color: #4a4a4a;
+        @include ff(11px, 400);
+        margin-bottom: 12px;
+        width: 100%;
+        text-align: right;
+
+        &_span {
+            color: #4a4a4a;
+            @include ff(11px, 400);
+            padding-left: 6%;
+        }
+    }
+
+    &__offer-grand {
+        color: #222;
+        @include ff(16px, 300);
+        margin-bottom: 21px;
+        width: 100%;
+        text-align: right;
+
+        &_span {
+            color: $colorPink;
+            @include ff(16px, 700);
+            padding-left: 6%;
+        }
+    }
+
+    &__offer-hr {
+        border: 1px solid #e2e2e2;
+        margin-bottom: 17px;
+    }
+
+    &__offer-link {
+        color: #fff;
+        @include ff(16px, 300);
+        padding: 15px 43px 16px 41px;
+        background-color: $colorPink;
+        border: 1px solid $colorPink;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    &__offer-link:hover {
+        transform: scale(1.1);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cart {
+        padding: 59px 0 128px;
+
+        &__flex {
+            flex-direction: column;
+        }
+
+        &__cards {
+            width: 100%;
+            margin-bottom: 64px;
+        }
+
+        &__card-input {
+            width: 13%;
+        }
+
+        &__info {
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        &__form {
+            width: 49%;
+        }
+
+        &__offer {
+            width: 49%;
+            max-height: 214px;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .arrivals_padding {
+        padding: 50px 0 69px;
+    }
+
+    .cart {
+        padding: 39px 0 96px;
+
+        &__flex {
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        &__cards {
+            width: 100%;
+        }
+
+        &__cards &__card:nth-child(2) {
+            margin-bottom: 30px;
+        }
+
+        &__card {
+            height: 188px;
+            margin-bottom: 32px;
+        }
+
+        &__card-close {
+            width: 10px;
+            height: 11px;
+            top: 17px;
+            right: 12px;
+        }
+
+        &__img {
+            height: 188px;
+        }
+
+        &__card-content {
+            padding: 14px 0 38px 17px;
+            gap: 4px;
+        }
+
+        &__card-heading {
+            @include ff(16px, 400);
+            margin-bottom: 26px;
+        }
+
+        &__card-txt {
+            @include ff(14px, 400);
+        }
+
+        &__card-input {
+            @include ff(10px, 400);
+            width: 13%;
+            text-align: center;
+        }
+
+        &__btns {
+            margin-top: 0;
+        }
+
+        &__btn {
+            color: #575757;
+            @include ff(12px, 400);
+            padding: 10px 17px;
+        }
+
+        &__info {
+            width: 100%;
+            gap: 48px;
+        }
+    }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <script src="https://kit.fontawesome.com/84ef5d59a0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav nav__flex container content">
+            <div class="nav__left">
+                <a href="index.html" class="nav__logo-link">
+                    <img src="img/nav__logo.png" alt="main image" class="nav__logo-img">
+                </a>
+                <a href="#" class="nav__search-link">
+                    <img src="img/nav__search.svg" alt="search image" class="nav__search-img">
+                </a>
+            </div>
+            <div class="nav__right">
+                <details class="nav__menu">
+                    <summary>
+                        <img src="img/nav__menu.svg" alt="menu image" class="nav__menu-img nav__menu-link">
+                    </summary>
+                    <div class="nav__menu-box">
+                        <svg class="nav__menu-close" xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+                            viewBox="0 0 13 13" fill="none">
+                            <path
+                                d="M7.4158 6.00409L11.7158 1.71409C11.9041 1.52579 12.0099 1.27039 12.0099 1.00409C12.0099 0.73779 11.9041 0.482395 11.7158 0.294092C11.5275 0.105788 11.2721 0 11.0058 0C10.7395 0 10.4841 0.105788 10.2958 0.294092L6.0058 4.59409L1.7158 0.294092C1.52749 0.105788 1.2721 -1.9841e-09 1.0058 0C0.739497 1.9841e-09 0.484102 0.105788 0.295798 0.294092C0.107495 0.482395 0.0017066 0.73779 0.0017066 1.00409C0.0017066 1.27039 0.107495 1.52579 0.295798 1.71409L4.5958 6.00409L0.295798 10.2941C0.20207 10.3871 0.127676 10.4977 0.0769072 10.6195C0.0261385 10.7414 0 10.8721 0 11.0041C0 11.1361 0.0261385 11.2668 0.0769072 11.3887C0.127676 11.5105 0.20207 11.6211 0.295798 11.7141C0.388761 11.8078 0.499362 11.8822 0.621222 11.933C0.743081 11.9838 0.873786 12.0099 1.0058 12.0099C1.13781 12.0099 1.26852 11.9838 1.39038 11.933C1.51223 11.8822 1.62284 11.8078 1.7158 11.7141L6.0058 7.41409L10.2958 11.7141C10.3888 11.8078 10.4994 11.8822 10.6212 11.933C10.7431 11.9838 10.8738 12.0099 11.0058 12.0099C11.1378 12.0099 11.2685 11.9838 11.3904 11.933C11.5122 11.8822 11.6228 11.8078 11.7158 11.7141C11.8095 11.6211 11.8839 11.5105 11.9347 11.3887C11.9855 11.2668 12.0116 11.1361 12.0116 11.0041C12.0116 10.8721 11.9855 10.7414 11.9347 10.6195C11.8839 10.4977 11.8095 10.3871 11.7158 10.2941L7.4158 6.00409Z"
+                                fill="#6F6E6E" />
+                        </svg>
+                        <h4 class="nav__menu-heading">MENU</h4>
+                        <h4 class="nav__menu-item-heading">MAN</h4>
+                        <div class="nav__menu-item">
+                            <a href="#" class="nav__item-link">Accessories</a>
+                            <a href="#" class="nav__item-link">Bags</a>
+                            <a href="#" class="nav__item-link">Denim</a>
+                            <a href="#" class="nav__item-link">T-Shirts</a>
+                        </div>
+                        <h4 class="nav__menu-item-heading">WOMAN</h4>
+                        <div class="nav__menu-item">
+                            <a href="#" class="nav__item-link">Accessories</a>
+                            <a href="#" class="nav__item-link">Jackets & Coats</a>
+                            <a href="#" class="nav__item-link">Polos</a>
+                            <a href="#" class="nav__item-link">T-Shirts</a>
+                            <a href="#" class="nav__item-link">Shirts</a>
+                        </div>
+                        <h4 class="nav__menu-item-heading">KIDS</h4>
+                        <div class="nav__menu-item">
+                            <a href="#" class="nav__item-link">Accessories</a>
+                            <a href="#" class="nav__item-link">Jackets & Coats</a>
+                            <a href="#" class="nav__item-link">Polos</a>
+                            <a href="#" class="nav__item-link">T-Shirts</a>
+                            <a href="#" class="nav__item-link">Shirts</a>
+                            <a href="#" class="nav__item-link">Bags</a>
+                        </div>
+                    </div>
+                </details>
+                <a href="registration.html" class="nav__user-profile">
+                    <img src="img/nav__profile.svg" alt="user account image" class="nav__profile-img">
+                </a>
+                <a href="cart.html" class="nav__cart-link">
+                    <img src="img/nav__cart.svg" alt="cart image" class="nav__cart-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <section class="arrivals arrivals_padding">
+        <div class="arrivals__flex container content">
+            <h2 class="arrivals__heading">SHOPPING CART</h2>
+        </div>
+    </section>
+    <section class="cart">
+        <div class="cart__flex container content">
+            <div class="cart__cards">
+                <div class="cart__card">
+                    <svg class="cart__card-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none">
+                        <path
+                            d="M11.2453 9L17.5302 2.71516C17.8285 2.41741 17.9962 2.01336 17.9966 1.59191C17.997 1.17045 17.8299 0.76611 17.5322 0.467833C17.2344 0.169555 16.8304 0.00177586 16.4089 0.00140366C15.9875 0.00103146 15.5831 0.168097 15.2848 0.465848L9 6.75069L2.71516 0.465848C2.41688 0.167571 2.01233 0 1.5905 0C1.16868 0 0.764125 0.167571 0.465848 0.465848C0.167571 0.764125 0 1.16868 0 1.5905C0 2.01233 0.167571 2.41688 0.465848 2.71516L6.75069 9L0.465848 15.2848C0.167571 15.5831 0 15.9877 0 16.4095C0 16.8313 0.167571 17.2359 0.465848 17.5342C0.764125 17.8324 1.16868 18 1.5905 18C2.01233 18 2.41688 17.8324 2.71516 17.5342L9 11.2493L15.2848 17.5342C15.5831 17.8324 15.9877 18 16.4095 18C16.8313 18 17.2359 17.8324 17.5342 17.5342C17.8324 17.2359 18 16.8313 18 16.4095C18 15.9877 17.8324 15.5831 17.5342 15.2848L11.2453 9Z"
+                            fill="#575757" />
+                    </svg>
+                    <a href="product.html">
+                        <img src="img/f__item-man-top-right.jpg" alt="man with a panama" class="cart__img">
+                    </a>
+                    <div class="cart__card-content">
+                        <h3 class="cart__card-heading">MANGO PEOPLE T-SHIRT</h3>
+                        <div class="cart__card-desc">
+                            <p class="cart__card-txt">Price: <span class="cart__card-txt_span">$300</span></p>
+                            <p class="cart__card-txt">Color: Red</p>
+                            <p class="cart__card-txt">Size: Xl </p>
+                            <label for="quantity-1" class="cart__card-txt">Quantity: <input class="cart__card-input"
+                                    type="number" name="quantity-1" id="quantity-1" min="1" value="2"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart__card">
+                    <svg class="cart__card-close" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 18 18" fill="none">
+                        <path
+                            d="M11.2453 9L17.5302 2.71516C17.8285 2.41741 17.9962 2.01336 17.9966 1.59191C17.997 1.17045 17.8299 0.76611 17.5322 0.467833C17.2344 0.169555 16.8304 0.00177586 16.4089 0.00140366C15.9875 0.00103146 15.5831 0.168097 15.2848 0.465848L9 6.75069L2.71516 0.465848C2.41688 0.167571 2.01233 0 1.5905 0C1.16868 0 0.764125 0.167571 0.465848 0.465848C0.167571 0.764125 0 1.16868 0 1.5905C0 2.01233 0.167571 2.41688 0.465848 2.71516L6.75069 9L0.465848 15.2848C0.167571 15.5831 0 15.9877 0 16.4095C0 16.8313 0.167571 17.2359 0.465848 17.5342C0.764125 17.8324 1.16868 18 1.5905 18C2.01233 18 2.41688 17.8324 2.71516 17.5342L9 11.2493L15.2848 17.5342C15.5831 17.8324 15.9877 18 16.4095 18C16.8313 18 17.2359 17.8324 17.5342 17.5342C17.8324 17.2359 18 16.8313 18 16.4095C18 15.9877 17.8324 15.5831 17.5342 15.2848L11.2453 9Z"
+                            fill="#575757" />
+                    </svg>
+                    <a href="product.html">
+                        <img src="img/cart__man-bot.jpg" alt="man with a panama" class="cart__img">
+                    </a>
+                    <div class="cart__card-content">
+                        <h3 class="cart__card-heading">MANGO PEOPLE T-SHIRT</h3>
+                        <div class="cart__card-desc">
+                            <p class="cart__card-txt">Price: <span class="cart__card-txt_span">$300</span></p>
+                            <p class="cart__card-txt">Color: Red</p>
+                            <p class="cart__card-txt">Size: Xl </p>
+                            <label for="quantity-2" class="cart__card-txt">Quantity: <input class="cart__card-input"
+                                    type="number" name="quantity-2" id="quantity-2" min="1" value="2"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart__btns">
+                    <a class="cart__btn" href="#">CLEAR SHOPPING CART</a>
+                    <a class="cart__btn" href="catalog.html">CONTINUE SHOPPING</a>
+                </div>
+            </div>
+            <div class="cart__info">
+                <form action="#" class="cart__form">
+                    <h5 class="cart__form-heading">SHIPPING ADRESS</h5>
+                    <input type="text" class="cart__form-input" placeholder="Bangladesh">
+                    <input type="text" class="cart__form-input" placeholder="State">
+                    <input type="text" class="cart__form-input" placeholder="Postcode / Zip">
+                    <button type="submit" class="cart__form-btn">GET A QUOTE</button>
+                </form>
+                <div class="cart__offer">
+                    <p class="cart__offer-sub">SUB TOTAL
+                        <span class="cart__offer-sub_span">$900</span>
+                    </p>
+                    <p class="cart__offer-grand">GRAND TOTAL
+                        <span class="cart__offer-grand_span">$900</span>
+                    </p>
+                    <hr class="cart__offer-hr">
+                    <a href="#" class="cart__offer-link">PROCEED TO CHECKOUT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__top-bg">
+            <div class="footer__top container content">
+                <figure class="footer__fig">
+                    <img class="footer__fig-img" src="img/footer__fig-img.png" alt="">
+                    <figcaption class="footer__figcaption">
+                        “Vestibulum quis porttitor dui! Quisque viverra nunc mi, <span class="footer__figcaption_span">a
+                            pulvinar purus condimentum“</span>
+                    </figcaption>
+                </figure>
+                <div class="footer__form-info">
+                    <h3 class="footer__form-heading">SUBSCRIBE</h3>
+                    <p class="footer__form-desc">FOR OUR NEWLETTER AND PROMOTION</p>
+                    <form action="#" class="footer__form">
+                        <input type="text" class="footer__input" placeholder="Enter Your Email">
+                        <button type="submit" class="footer__btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom-bg">
+            <div class="footer__bottom container content">
+                <p class="footer__copy">&copy; 2022 Brand All Rights Reserved.</p>
+                <div class="footer__contacts">
+                    <a href="#" class="footer__contact-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer__contact-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer__contact-link"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="#" class="footer__contact-link"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

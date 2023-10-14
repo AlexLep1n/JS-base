@@ -1,0 +1,239 @@
+@import "vars";
+
+@mixin df($jc, $ai, $g) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: $g;
+}
+
+@mixin ff($fs, $fw) {
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+.filter-sort {
+    @include df(unset, unset, 0);
+    padding: 39px 0 0 0;
+    height: 132px;
+    position: relative;
+}
+
+.filter {
+    padding: 13px 16px 16px;
+    width: 360px;
+    position: absolute;
+    z-index: 2;
+
+    &[open] {
+        background-color: #fff;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    }
+
+    &[open] &__heading {
+        color: $colorPink;
+    }
+
+    &[open] &__img {
+        fill: $colorPink;
+    }
+
+    &__summary {
+        @include df(unset, center, 11px);
+        cursor: pointer;
+    }
+
+    &__heading {
+        color: #000;
+        @include ff(14px, 600);
+    }
+
+    &__img-svg {
+        width: 15px;
+        height: 10px;
+    }
+
+    &__item {
+        margin: 16px 0 0 0;
+        cursor: pointer;
+    }
+
+    &__item[open] &__item-heading {
+        color: $colorPink;
+    }
+
+    &__item-heading {
+        color: #6f6e6e;
+        @include ff(14px, 400);
+        padding: 11px 0 11px 11px;
+        border-left: 5px solid $colorPink;
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    &__link-box {
+        @include df(unset, unset, 11px);
+        flex-direction: column;
+        padding: 24px 0 8px 17px;
+    }
+
+    &__link {
+        color: #6f6e6e;
+        @include ff(14px, 400);
+    }
+
+    &__link:hover {
+        color: $colorPink;
+    }
+}
+
+.sort {
+    @include df(center, flex-start, 28px);
+    position: absolute;
+    left: 390px;
+    top: 51px;
+
+    &__summary {
+        @include df(center, center, 10px);
+        @include ff(14px, 600);
+        color: #6f6e6e;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    &__item:hover &__summary {
+        color: $colorPink;
+    }
+
+    &__item:hover path {
+        fill: $colorPink;
+    }
+
+    &__box {
+        @include df(center, flex-start, 9px);
+        flex-direction: column;
+        padding: 7px 30px 11px 9px;
+        background: #fff;
+        box-shadow: 6px 4px 35px 0px rgba(0, 0, 0, 0.21);
+        position: absolute;
+        z-index: 2;
+        top: 22px;
+        left: -11px;
+    }
+
+    &__box-trend_left {
+        left: 25px;
+    }
+
+    &__label {
+        @include df(center, center, 9px);
+        color: #6f6e6e;
+        @include ff(14px, 400);
+    }
+
+    &__check {
+        color: #ebebeb;
+    }
+}
+
+.futured {
+    &__catalog-box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+    }
+
+    &__pagination {
+        @include df(center, center, 0);
+    }
+
+    &__pagination-box {
+        @include df(center, center, 15px);
+        padding: 12px 16px;
+        border: 1px solid #ebebeb;
+        transition: all 0.3s ease;
+    }
+
+    &__pagination-box svg {
+        cursor: pointer;
+    }
+
+    &__pagination-box svg:hover path {
+        fill: $colorPink;
+    }
+
+    &__pagination-link {
+        color: #c4c4c4;
+        @include ff(16px, 300);
+    }
+
+    &__pagination-link:hover {
+        color: $colorPink;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .filter-sort {
+        padding: 11px 0 0 0;
+        height: 81px;
+    }
+
+    .sort {
+        left: 455px;
+        top: 24px;
+    }
+
+    .futured {
+        &__catalog-box {
+            margin-bottom: 40px;
+        }
+
+        &__catalog-box &__item:nth-child(3) {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .filter-sort {
+        padding: 11px 0 0 0;
+        height: 81px;
+        margin-bottom: 16px;
+    }
+
+    .filter {
+        width: auto;
+        &__heading {
+            display: none;
+        }
+
+        &__img-svg {
+            width: 37px;
+            height: 25px;
+        }
+    }
+
+    .sort {
+        left: 94px;
+        top: 24px;
+
+        &__summary {
+            @include ff(12px, 400);
+            gap: 9px;
+        }
+    }
+
+    .futured-catalog {
+        margin-bottom: 64px;
+    }
+
+    .futured {
+        &__catalog-box {
+            margin-bottom: 24px;
+        }
+    }
+}

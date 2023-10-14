@@ -1,0 +1,856 @@
+@import "vars";
+
+@mixin df($jc, $ai, $g) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: $g;
+}
+
+@mixin ff($fs, $fw) {
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+summary {
+    display: flex;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+body {
+    font-family: $siteFF;
+}
+
+.container {
+    max-width: $containerWidth;
+    margin: 0 auto;
+}
+
+.content {
+    padding: 0 0;
+}
+
+.header {
+    background: #222222;
+}
+
+.nav {
+    &__flex {
+        @include df(space-between, center, 0);
+    }
+    &__left {
+        @include df(unset, center, 56%);
+    }
+
+    &__right {
+        @include df(flex-end, center, 30%);
+    }
+
+    &__logo-link {
+        padding: 18px 0 19px;
+    }
+
+    &__search-link {
+        padding: 28px 0 20px;
+    }
+
+    &__menu-link {
+        padding: 30px 0 22px;
+        cursor: pointer;
+    }
+
+    &__user-profile {
+        padding: 26px 0 22px;
+    }
+
+    &__cart-btn {
+        padding: 26px 0 22px;
+        position: relative;
+    }
+
+    &__cart-num {
+        display: inline-block;
+        color: #fff;
+        @include ff(12px, 400);
+        border: 1px solid #f16d7f;
+        border-radius: 100%;
+        background-color: #f16d7f;
+        text-align: center;
+        width: 19px;
+        height: 19px;
+        position: absolute;
+        top: 20px;
+        right: -9px;
+    }
+
+    &__menu {
+        position: relative;
+    }
+
+    &__menu-box {
+        position: absolute;
+        z-index: 2;
+        width: 232px;
+        background-color: #fff;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+        top: 77px;
+        left: 66px;
+        padding: 37px 73px 12px 33px;
+    }
+
+    &__menu-close {
+        position: absolute;
+        right: 17px;
+        top: 16px;
+        cursor: pointer;
+    }
+
+    &__menu-close:hover path {
+        fill: $colorPink;
+    }
+
+    &__menu-heading {
+        color: #000;
+        @include ff(14px, 700);
+        margin-bottom: 24px;
+    }
+
+    &__menu-item-heading {
+        color: $colorPink;
+        @include ff(14px, 400);
+        margin-bottom: 12px;
+    }
+
+    &__menu-item {
+        @include df(unset, flex-start, 11px);
+        flex-direction: column;
+        margin-bottom: 20px;
+        padding-left: 21px;
+    }
+
+    &__item-link {
+        color: #6f6e6e;
+        @include ff(14px, 400);
+    }
+
+    &__item-link:hover {
+        color: $colorPink;
+    }
+}
+
+.brand {
+    background: #f1e4e6;
+    margin-bottom: 65px;
+
+    &__flex {
+        @include df(space-between, center, 0);
+    }
+
+    &__text-box {
+        border-left: 12px solid $colorPink;
+        @include df(center, flex-start, 0);
+        flex-direction: column;
+        height: 93px;
+        width: 43%;
+    }
+
+    &__heading {
+        padding-left: 3%;
+        color: #222;
+        @include ff(48px, 900);
+    }
+
+    &__text {
+        padding-left: 3%;
+        @include ff(35px, 700);
+        line-height: 44px;
+        color: #222;
+    }
+
+    &__span {
+        @include ff(35px, 700);
+        line-height: 44px;
+        color: $colorPink;
+    }
+}
+
+.offers {
+    margin-bottom: 96px;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 260px 180px;
+        gap: 30px;
+    }
+
+    &__link {
+        @include df(center, center, 0);
+        position: relative;
+    }
+
+    &__link-big {
+        @include df(center, center, 0);
+        position: relative;
+    }
+
+    &__item-big {
+        grid-column: 1/4;
+        grid-row: 2/3;
+    }
+
+    &__text {
+        @include ff(16px, 400);
+        @include df(unset, center, 0);
+        flex-direction: column;
+        color: #fff;
+        position: absolute;
+        transition: all 0.3s ease;
+    }
+
+    &__link:hover &__text {
+        transform: scale(1.2);
+    }
+
+    &__link-big:hover &__text {
+        transform: scale(1.2);
+    }
+
+    &__span {
+        color: rgba(241, 109, 127, 1);
+        @include ff(24px, 700);
+        line-height: 29px;
+    }
+}
+
+.futured {
+    margin-bottom: 95px;
+
+    &__heading {
+        text-align: center;
+        color: #222;
+        @include ff(30px, 400);
+        margin-bottom: 6px;
+    }
+
+    &__text {
+        text-align: center;
+        color: #9f9f9f;
+        @include ff(14px, 400);
+        margin-bottom: 48px;
+    }
+
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+    }
+
+    &__item {
+        max-width: 360px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    &__item:hover &__item-img {
+        filter: brightness(45%);
+        transition-duration: 0.5s;
+    }
+
+    &__item-link {
+        display: block;
+    }
+
+    &__txt-box {
+        padding: 24px 16px;
+    }
+
+    &__item:hover &__txt-box {
+        background-color: #f8f8f8;
+        transition-duration: 0.5s;
+    }
+
+    &__item-heading {
+        color: #000;
+        @include ff(13px, 400);
+        margin-bottom: 12px;
+    }
+
+    &__item-desc {
+        color: #5d5d5d;
+        @include ff(14px, 300);
+        margin-bottom: 18px;
+    }
+
+    &__item-price {
+        color: $colorPink;
+        @include ff(16px, 400);
+    }
+
+    &__link {
+        @include df(center, center, 0);
+    }
+
+    &__link-product {
+        color: #f26376;
+        @include ff(16px, 400);
+        padding: 15px 39px;
+        border: 1px solid rgba(255, 106, 106, 1);
+        transition: all 0.3s ease;
+    }
+
+    &__link-product:hover {
+        color: #fff;
+        background-color: rgba(241, 109, 127, 1);
+        transform: scale(1.1);
+    }
+
+    &__cart-box {
+        position: absolute;
+        z-index: 2;
+        top: 188px;
+        left: 111px;
+        display: none;
+    }
+
+    &__item:hover &__cart-box {
+        display: flex;
+    }
+
+    &__cart-btn {
+        padding: 11px 16px 8px 13px;
+        border: 1px solid #fff;
+        @include df(center, center, 11px);
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0);
+        cursor: pointer;
+    }
+
+    &__cart-btn:hover {
+        box-shadow: 0 0 10px #ffffff;
+        transform: scale(1.1);
+    }
+
+    &__cart-btn-txt {
+        color: #fff;
+        @include ff(14px, 400);
+    }
+}
+
+.advantages {
+    background-color: #222224;
+    padding: 103px 0 104px;
+
+    &__flex {
+        @include df(center, center, 30px);
+    }
+
+    &__item {
+        @include df(center, center, 0);
+        flex-direction: column;
+    }
+
+    &__img {
+        margin-bottom: 24px;
+    }
+
+    &__heading {
+        color: #fbfbfb;
+        @include ff(20px, 400);
+        margin-bottom: 16px;
+    }
+
+    &__desc {
+        text-align: center;
+        color: #fbfbfb;
+        @include ff(14px, 300);
+        max-width: 88%;
+    }
+}
+
+.footer {
+    &__top-bg {
+        background-image: url(img/footer__bg-img.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        padding: 87px 0 126px;
+    }
+
+    &__top {
+        @include df(space-between, center, 0);
+    }
+
+    &__fig {
+        @include df(unset, center, 30px);
+        flex-direction: column;
+        max-width: 31%;
+    }
+
+    &__fig-img {
+        width: 27%;
+    }
+
+    &__figcaption {
+        text-align: center;
+        @include ff(20px, 400);
+        height: 99px;
+    }
+
+    &__figcaption_span {
+        font-style: italic;
+    }
+
+    &__form-info {
+        @include df(center, center, 0);
+        flex-direction: column;
+    }
+
+    &__form-heading {
+        color: #222224;
+        @include ff(24px, 700);
+        line-height: 167.2%;
+    }
+
+    &__form-desc {
+        color: #222224;
+        @include ff(18px, 400);
+        line-height: 167.2%;
+        margin-bottom: 32px;
+    }
+    &__form {
+        @include df(center, center, 0);
+        width: 100%;
+    }
+
+    &__input {
+        height: 49px;
+        background-color: #e1e1e1;
+        border-radius: 20px 0 0 20px;
+        border: none;
+        @include ff(14px, 400);
+        line-height: 17px;
+        color: #222224;
+        width: 100%;
+        padding: 0 10%;
+        opacity: 0.67;
+    }
+
+    &__btn {
+        color: #fff;
+        text-align: center;
+        @include ff(14px, 400);
+        background-color: rgba(241, 109, 127, 1);
+        height: 49px;
+        border: none;
+        border-radius: 0px 20px 20px 0;
+        width: 40%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    &__btn:hover {
+        transform: scale(1.1);
+    }
+
+    &__bottom-bg {
+        padding: 24px 0;
+        background-color: #222224;
+    }
+
+    &__bottom {
+        @include df(space-between, center, 0);
+    }
+
+    &__copy {
+        color: #fbfbfb;
+        @include ff(16px, 400);
+    }
+
+    &__contacts {
+        @include df(space-between, center, 7px);
+        width: 13%;
+    }
+
+    &__contact-link {
+        @include df(center, center, 0);
+        background-color: rgba(255, 255, 255, 1);
+        height: 32px;
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+
+    &__contact-link:hover {
+        background-color: rgba(241, 109, 127, 1);
+        transform: scale(1.1);
+    }
+
+    .fa-facebook-f,
+    .fa-instagram,
+    .fa-pinterest-p,
+    .fa-twitter {
+        color: rgb(0, 0, 0);
+    }
+
+    &__contact-link:hover .fa-facebook-f {
+        color: rgba(255, 255, 255, 1);
+    }
+    &__contact-link:hover .fa-instagram {
+        color: rgba(255, 255, 255, 1);
+    }
+    &__contact-link:hover .fa-pinterest-p {
+        color: rgba(255, 255, 255, 1);
+    }
+    &__contact-link:hover .fa-twitter {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .content {
+        padding: 0 2%;
+    }
+
+    .nav {
+        &__left {
+            padding-left: 2%;
+        }
+
+        &__right {
+            padding-right: 2%;
+        }
+
+        &__logo-link {
+            padding: 18px 0 18px;
+        }
+
+        &__search-link {
+            padding: 28px 0 19px;
+        }
+
+        &__menu-link {
+            padding: 31px 0 20px;
+        }
+
+        &__user-profile {
+            padding: 27px 0 18px;
+        }
+
+        &__cart-btn {
+            padding: 27px 0 18px;
+        }
+
+        &__menu-box {
+            left: -46px;
+        }
+    }
+
+    .brand {
+        &__img {
+            height: 368px;
+            padding-left: 3%;
+        }
+
+        &__text-box {
+            align-items: flex-start;
+            margin-right: 3%;
+            height: 78px;
+            width: 56%;
+        }
+
+        &__heading {
+            @include ff(44px, 900);
+            line-height: 41px;
+        }
+
+        &__text {
+            @include ff(31px, 700);
+        }
+
+        &__span {
+            @include ff(31px, 700);
+        }
+    }
+
+    .offers {
+        margin-bottom: 109px;
+
+        &__grid {
+            grid-template-columns: repeat(3, 232px);
+            grid-template-rows: 167px 116px;
+            gap: 20px;
+        }
+
+        &__img {
+            max-width: 100%;
+        }
+
+        &__img-big {
+            max-width: 100%;
+        }
+    }
+
+    .futured {
+        margin-bottom: 64px;
+
+        &__box {
+            margin-bottom: 32px;
+        }
+
+        &__heading {
+            margin-bottom: 3px;
+        }
+
+        &__text {
+            margin-bottom: 72px;
+        }
+
+        &__item {
+            margin-bottom: 16px;
+        }
+
+        &__txt-box {
+            padding: 25px 16px;
+        }
+    }
+
+    .advantages {
+        padding: 48px 0 64px;
+
+        &__flex {
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        &__desc {
+            max-width: 54%;
+        }
+    }
+
+    .footer {
+        &__top-bg {
+            padding: 54px 0 140px;
+        }
+
+        &__top {
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        &__fig {
+            max-width: 100%;
+        }
+
+        &__fig-img {
+            width: 13%;
+        }
+
+        &__figcaption {
+            max-width: 55%;
+        }
+
+        &__form-heading,
+        &__form-desc {
+            line-height: 162%;
+        }
+
+        &__form-desc {
+            margin-bottom: 27px;
+        }
+
+        &__contacts {
+            width: 20%;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .container {
+        max-width: 375px;
+    }
+
+    .content {
+        padding: 0 2%;
+    }
+
+    .nav {
+        &__left {
+            padding-left: 2%;
+        }
+
+        &__right {
+            padding-right: 2%;
+        }
+
+        &__user-profile,
+        &__cart-btn {
+            display: none;
+        }
+
+        &__logo-link {
+            padding: 18px 0 18px;
+        }
+
+        &__search-link {
+            padding: 28px 0 19px;
+        }
+
+        &__menu-link {
+            padding: 25px 0 26px;
+        }
+
+        &__menu-box {
+            left: -186px;
+        }
+    }
+
+    .brand {
+        margin-bottom: 64px;
+
+        &__flex {
+            padding: 148px 2% 149px;
+            justify-content: center;
+        }
+
+        &__img {
+            display: none;
+        }
+
+        &__text-box {
+            width: 100%;
+            margin-left: 11%;
+            height: 61px;
+        }
+
+        &__heading {
+            @include ff(38px, 900);
+        }
+
+        &__text {
+            @include ff(21px, 700);
+            line-height: 25px;
+        }
+
+        &__span {
+            @include ff(21px, 700);
+            line-height: 25px;
+        }
+    }
+
+    .offers {
+        margin-bottom: 64px;
+
+        &__grid {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(3, 247px) 111px;
+            gap: 32px;
+        }
+
+        &__item-big {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        &__img {
+            max-width: 100%;
+        }
+
+        &__img-big {
+            height: 111px;
+            max-width: 100%;
+        }
+    }
+
+    .futured {
+        margin-bottom: 96px;
+
+        &__box {
+            margin-bottom: 24px;
+        }
+
+        &__text {
+            margin-bottom: 64px;
+        }
+
+        &__item {
+            max-width: 359px;
+            margin-bottom: 16px;
+        }
+    }
+
+    .advantages {
+        padding: 48px 0 81px;
+
+        &__flex {
+            flex-direction: column;
+            gap: 47px;
+        }
+    }
+
+    .footer {
+        &__top-bg {
+            padding: 64px 0 110px;
+        }
+
+        &__top {
+            flex-direction: column;
+            gap: 59px;
+        }
+
+        &__fig {
+            max-width: 100%;
+        }
+
+        &__fig-img {
+            width: 25%;
+        }
+
+        &__figcaption {
+            @include ff(18px, 400);
+            height: 73px;
+        }
+
+        &__form-heading,
+        &__form-desc {
+            line-height: 153%;
+        }
+
+        &__form-desc {
+            @include ff(14px, 400);
+            margin-bottom: 22px;
+        }
+
+        &__bottom-bg {
+            padding: 43px 0 24px;
+        }
+
+        &__bottom {
+            flex-direction: column-reverse;
+            gap: 40px;
+        }
+
+        &__contacts {
+            width: 42%;
+        }
+    }
+}
+
+@import "product";
+@import "catalog";
+@import "cart";
+@import "registration";
