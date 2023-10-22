@@ -68,9 +68,9 @@ class Product {
 // Метод getTotalPrice() - возвращает общую стоимость заказа, основанную на ценах продуктов.
 
 class Order {
+  products = [];
   constructor(id) {
     this.id = id;
-    this.products = [];
   }
 
   addProduct(product) {
@@ -79,7 +79,7 @@ class Order {
 
   getTotalPrice() {
     return this.products.reduce(
-      (sum, cur) => (sum += cur.getPrice() * cur.getQuantity()),
+      (sum, cur) => sum + cur.getPrice() * cur.getQuantity(),
       0
     );
   }
