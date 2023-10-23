@@ -10,26 +10,18 @@
 
 // дописал async, чтобы явно показать что возвращает Promise (подсказка от ES-lint)
 async function getUserData(id) {
-  return fetch("https://reqres.in/api/users?page=2")
+  return fetch(`https://reqres.in/api/users/${id}`)
     .then((response) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Ошибка получения данных!");
+        throw new Error(`Пользователь с id = ${id} не найден!`);
       }
     })
-    .then((response) => {
-      const data = response.data;
-      const user = data.filter((item) => item.id === id);
-      if (user.length === 0) {
-        throw new Error(`Пользователя c id = ${id} нет!`);
-      } else {
-        return user[0];
-      }
-    });
+    .then((response) => response.data);
 }
 
-getUserData(8) // возвращает Promise c resolve(user[0]) или сообщение об ошибке
+getUserData(2) // возвращает Promise c resolve(user[0]) или сообщение об ошибке
   .then((response) => console.log(response)) // выводит в консоль искомого пользователя
   .catch((error) => console.log(error.message)); // отлавливает ошибку и вывод в консоль
 
@@ -57,22 +49,20 @@ getUserData(8) // возвращает Promise c resolve(user[0]) или соо�
 // Работа должна быть выполнена с API: https://reqres.in/
 
 async function saveUserData(obj) {
-  return fetch("https://reqres.in/api/users?page=2", {
+  return fetch("https://reqres.in/api/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify(obj),
-  })
-    .then((response) => {
-      if (response.ok) {
-        console.log("User data saved successfully");
-        return response.json();
-      } else {
-        throw new Error("Ошибка! Данные не отправлены!");
-      }
-    })
-    .catch((error) => console.log(error));
+  }).then((response) => {
+    if (response.ok) {
+      console.log("User data saved successfully");
+      return response.json();
+    } else {
+      throw new Error("Ошибка! Данные не отправлены!");
+    }
+  });
 }
 
 const user = {
@@ -81,7 +71,9 @@ const user = {
   // id: "1",  // можно указать свой id, заменив генерируемый, заменить createdAt не выйдет
 };
 
-saveUserData(user).then((response) => console.log(response));
+saveUserData(user)
+  .then((response) => console.log(response))
+  .catch((error) => console.log(error));
 
 // Задание 3. Изменение стиля элемента через заданное время (выполняем, если знакомы с DOM).
 
