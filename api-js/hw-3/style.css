@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 100px auto;
+}
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo__img {
+  width: 700px;
+  height: 700px;
+}
+
+.author {
+  font-size: 24px;
+}
+
+.count {
+  font-size: 24px;
+}
+
+.like {
+  padding: 10px;
+  border: none;
+  background-color: lightcoral;
+  border-radius: 100px;
+  font-size: 20px;
+  cursor: pointer;
+}
