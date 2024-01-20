@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  margin: 100px auto;
+  width: 780px;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider__img {
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 250px;
+  padding: 4px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.slider__dots {
+  position: absolute;
+  top: 510px;
+  left: 400px;
+  display: flex;
+  gap: 4px;
+}
+
+.slider__dot {
+  padding: 10px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: grey;
+}
+
+.active-dot {
+  background-color: blue;
+}
